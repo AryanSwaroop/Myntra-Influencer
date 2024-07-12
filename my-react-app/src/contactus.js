@@ -1,8 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
+import axios from'axios';
 import myntraLogo from './myntra.svg';
 
 const ContactUs = () => {
+    const data={fullname:"",Email:"",textarea:""};
+    const [inputData,setInputdata]=useState(data);
+    const handledata=(e)=>{
+        setInputdata({...inputData,[e.target.name]:e.target.value})
+    }
+    const handlesubmit=(e)=>{
+        e.preventDefault();
+        axios.post("",JSON.stringify(inputData))
+        .then((response)=>{
+            console.log(response);
+        })
+
+
+
+
+    }
     return (
         <div>
             <section className="contact_us bg-color">
@@ -16,10 +33,10 @@ const ContactUs = () => {
                                             <div className="contact_field">
                                                 <h3>Contact Us</h3>
                                                 <p>Feel free to contact us any time. We will get back to you as soon as we can!</p>
-                                                <input type="text" className="form-control form-group" placeholder="Name" />
-                                                <input type="text" className="form-control form-group" placeholder="Email" />
-                                                <textarea className="form-control form-group" placeholder="Message"></textarea>
-                                                <button className="contact_form_submit">Send</button>
+                                                <input type="text" name='fullname' value={data.fullname} onChange={handledata} className="form-control form-group" placeholder="Name" />
+                                                <input type="text" name='Email'value={data.Email} onChange={handledata} className="form-control form-group" placeholder="Email" />
+                                                <textarea name ="textarea"value ={data.textarea} onChange={handledata} className="form-control form-group" placeholder="Message"></textarea>
+                                                <button onClick={handlesubmit} className="contact_form_submit">Send</button>
                                             </div>
                                         </div>
                                     </div>
