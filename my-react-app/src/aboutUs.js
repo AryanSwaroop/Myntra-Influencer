@@ -64,7 +64,7 @@ const AboutUs = () => {
           </button>
         </div>
         <div className="text-center text-white p-3" style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
-          © 2020 Copyright:
+          © 2024 Copyright:
           <a className="text-white" href="https://myntra.com/">Myntra.com</a>
         </div>
       </footer>

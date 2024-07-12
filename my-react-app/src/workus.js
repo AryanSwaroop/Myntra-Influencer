@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import axios from 'axios';
 
 const WorkUs = () => {
     const [isUpdating, setIsUpdating] = useState(false);
@@ -47,15 +48,21 @@ const WorkUs = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        localStorage.setItem('influencerData', JSON.stringify(formData));
-        alert(isUpdating ? 'Details updated successfully!' : 'Form submitted successfully!');
+        axios.post("",JSON.stringify(formData))
+        .then(response=>{
+            console.log(response)
+        })
+        // localStorage.setItem('influencerData', JSON.stringify(formData));
+        // alert(isUpdating ? 'Details updated successfully!' : 'Form submitted successfully!');
+
     };
 
     return (
         <div className="container-fluid mt-2 bg-color">
             <h1 className="text-center">Work With Us</h1>
             <p className="text-center">Fill out the form below to collaborate with us.</p>
-            <form onSubmit={handleSubmit}>
+            <form >
+                {/* onSubmit={handleSubmit} */}
                 <div className="form-row">
                     <div className="form-group col-md-6">
                         <label htmlFor="name">Name <span className="required">*</span></label>
@@ -191,7 +198,9 @@ const WorkUs = () => {
                     </div>
                 </div>
                 <div className="form-row justify-content-center">
-                    <button type="submit" className="btn btn-pink">{isUpdating ? 'Update Details' : 'Submit'}</button>
+                    <button type="submit"onClick={handleSubmit} className="btn btn-pink">Submit</button>
+                    {/* {isUpdating ? 'Update Details' : 'Submit'} */}
+                    
                 </div>
                 <div className="form-row mt-3">
                     <p className="text-center w-100">* Please update this regularly for more opportunities.</p>
