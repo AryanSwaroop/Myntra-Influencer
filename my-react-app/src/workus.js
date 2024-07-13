@@ -98,7 +98,7 @@ const WorkUs = () => {
                             <option>Instagram</option>
                             <option>YouTube</option>
                             <option>Facebook</option>
-                            <option>Other</option>
+                            <option>Others</option>
                         </select>
                     </div>
                     <div className="form-group col-md-6">
@@ -128,42 +128,47 @@ const WorkUs = () => {
                 </div>
                 <div className="form-row">
                     <div className="form-group col-md-6">
-                        <label htmlFor="audienceSatisfaction">Audience Satisfaction (0-5) <span className="required">*</span></label>
+                        <label htmlFor="audienceSatisfaction">Audience Satisfaction (0-10) <span className="required">*</span></label>
                         <input type="number" className="form-control" id="audienceSatisfaction" value={formData.audienceSatisfaction} onChange={handleChange} min="0" max="5" placeholder="Rate from 0 to 5" required />
                     </div>
                     <div className="form-group col-md-6">
                         <label htmlFor="audienceAge">Audience Age Group <span className="required">*</span></label>
                         <select id="audienceAge" className="form-control" value={formData.audienceAge} onChange={handleChange} required>
                             <option value="">Choose...</option>
-                            <option>0 to 18</option>
-                            <option>18 to 35</option>
-                            <option>35 to 100</option>
+                            <option>5 to 15</option>
+                            <option>15 to 25</option>
+                            <option>25 to 45</option>
+                            <option>45 to 55</option>
+                            <option>55 to 75</option>
+                            <option>75-100</option>
                         </select>
                     </div>
                 </div>
                 <div className="form-row">
                     <div className="form-group col-md-6">
-                        <label htmlFor="audienceType">Most Audience Type <span className="required">*</span></label>
+                        <label htmlFor="audienceType">Targeted Audience Type <span className="required">*</span></label>
                         <select id="audienceType" className="form-control" value={formData.audienceType} onChange={handleChange} required>
                             <option value="">Choose...</option>
                             <option>Children</option>
+                            <option>Teenager</option>
                             <option>Adults</option>
-                            <option>Young Age</option>
                             <option>Old Age</option>
                         </select>
                     </div>
                     <div className="form-group col-md-6">
-                        <label htmlFor="audienceGender">Most Audience Gender <span className="required">*</span></label>
+                        <label htmlFor="audienceGender">Targeted Audience Gender <span className="required">*</span></label>
                         <select id="audienceGender" className="form-control" value={formData.audienceGender} onChange={handleChange} required>
                             <option value="">Choose...</option>
                             <option>Male</option>
                             <option>Female</option>
+                            <option>Both</option>
+                            <option>Others</option>
                         </select>
                     </div>
                 </div>
                 <div className="form-row">
                     <div className="form-group col-md-6">
-                        <label htmlFor="pastCampaignSuccess">Past Campaign Success Rate (0-5) <span className="required">*</span></label>
+                        <label htmlFor="pastCampaignSuccess">Past Campaign Success Rate (0-10) <span className="required">*</span></label>
                         <input type="number" className="form-control" id="pastCampaignSuccess" value={formData.pastCampaignSuccess} onChange={handleChange} min="0" max="5" placeholder="Rate from 0 to 5" required />
                     </div>
                     <div className="form-group col-md-6">
@@ -173,11 +178,11 @@ const WorkUs = () => {
                 </div>
                 <div className="form-row">
                     <div className="form-group col-md-6">
-                        <label htmlFor="engagementRate">Engagement Rate (0-5) <span className="required">*</span></label>
+                        <label htmlFor="engagementRate">Engagement Rate (0-10) <span className="required">*</span></label>
                         <input type="number" className="form-control" id="engagementRate" value={formData.engagementRate} onChange={handleChange} min="0" max="5" placeholder="Rate from 0 to 5" required />
                     </div>
                     <div className="form-group col-md-6">
-                        <label htmlFor="followersGrowthRate">Followers Growth Rate (0-5) <span className="required">*</span></label>
+                        <label htmlFor="followersGrowthRate">Followers Growth Rate (0-10) <span className="required">*</span></label>
                         <input type="number" className="form-control" id="followersGrowthRate" value={formData.followersGrowthRate} onChange={handleChange} min="0" max="5" placeholder="Rate from 0 to 5" required />
                     </div>
                 </div>
@@ -186,17 +191,14 @@ const WorkUs = () => {
                         <label htmlFor="state">State <span className="required">*</span></label>
                         <input type="text" className="form-control" id="state" value={formData.state} onChange={handleChange} placeholder="Your State" required />
                     </div>
-                    <div className="form-group col-md-6">
-                        <label htmlFor="city">City <span className="required">*</span></label>
-                        <input type="text" className="form-control" id="city" value={formData.city} onChange={handleChange} placeholder="Your City" required />
-                    </div>
+                 
                 </div>
                 <div className="form-row">
                     <div className="form-group col-md-6">
                         <label htmlFor="campaignDuration">Campaign Duration <span className="required">*</span></label>
                         <select id="campaignDuration" className="form-control" value={formData.campaignDuration} onChange={handleChange} required>
                             <option value="">Choose...</option>
-                            <option value="One-time post">One-time post</option>
+                            <option value="One-time-post">One-time-post</option>
                             <option value="Month-long">Month-long</option>
                             <option value="Year-long">Year-long</option>
                         </select>
