@@ -25,7 +25,10 @@ const WorkUs = () => {
         followersGrowthRate: '',
         achievements: '',
         bio: '',
-        photo: null
+        photo: null,
+        state: '',
+        city: '',
+        campaignDuration: ''
     });
 
     useEffect(() => {
@@ -48,20 +51,19 @@ const WorkUs = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post("",JSON.stringify(formData))
-        .then(response=>{
-            console.log(response)
-        })
+        axios.post("", JSON.stringify(formData))
+        .then(response => {
+            console.log(response);
+        });
         // localStorage.setItem('influencerData', JSON.stringify(formData));
         // alert(isUpdating ? 'Details updated successfully!' : 'Form submitted successfully!');
-
     };
 
     return (
         <div className="container-fluid mt-2 bg-color">
             <h1 className="text-center">Work With Us</h1>
             <p className="text-center">Fill out the form below to collaborate with us.</p>
-            <form >
+            <form>
                 {/* onSubmit={handleSubmit} */}
                 <div className="form-row">
                     <div className="form-group col-md-6">
@@ -109,7 +111,7 @@ const WorkUs = () => {
                         <label htmlFor="followers">Number of Followers <span className="required">*</span></label>
                         <input type="number" className="form-control" id="followers" value={formData.followers} onChange={handleChange} placeholder="Number of Followers" required />
                     </div>
-                    <div className="form-group col-md6">
+                    <div className="form-group col-md-6">
                         <label htmlFor="averageLikes">Average Likes per Post/Video <span className="required">*</span></label>
                         <input type="number" className="form-control" id="averageLikes" value={formData.averageLikes} onChange={handleChange} placeholder="Average Likes" required />
                     </div>
@@ -180,6 +182,27 @@ const WorkUs = () => {
                     </div>
                 </div>
                 <div className="form-row">
+                    <div className="form-group col-md-6">
+                        <label htmlFor="state">State <span className="required">*</span></label>
+                        <input type="text" className="form-control" id="state" value={formData.state} onChange={handleChange} placeholder="Your State" required />
+                    </div>
+                    <div className="form-group col-md-6">
+                        <label htmlFor="city">City <span className="required">*</span></label>
+                        <input type="text" className="form-control" id="city" value={formData.city} onChange={handleChange} placeholder="Your City" required />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-6">
+                        <label htmlFor="campaignDuration">Campaign Duration <span className="required">*</span></label>
+                        <select id="campaignDuration" className="form-control" value={formData.campaignDuration} onChange={handleChange} required>
+                            <option value="">Choose...</option>
+                            <option value="One-time post">One-time post</option>
+                            <option value="Month-long">Month-long</option>
+                            <option value="Year-long">Year-long</option>
+                        </select>
+                    </div>
+                </div>
+                <div className="form-row">
                     <div className="form-group col-md-12">
                         <label htmlFor="achievements">Achievements </label>
                         <textarea className="form-control" id="achievements" rows="3" value={formData.achievements} onChange={handleChange} placeholder="List your achievements" required></textarea>
@@ -198,9 +221,8 @@ const WorkUs = () => {
                     </div>
                 </div>
                 <div className="form-row justify-content-center">
-                    <button type="submit"onClick={handleSubmit} className="btn btn-pink">Submit</button>
+                    <button type="submit" onClick={handleSubmit} className="btn btn-pink">Submit</button>
                     {/* {isUpdating ? 'Update Details' : 'Submit'} */}
-                    
                 </div>
                 <div className="form-row mt-3">
                     <p className="text-center w-100">* Please update this regularly for more opportunities.</p>

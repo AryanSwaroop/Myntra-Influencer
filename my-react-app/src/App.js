@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import AboutUs from './aboutUs'; // Ensure correct case in import
 import ContactUs from './contactus'; // Ensure correct case in import
 import WorkUs from './workus'; // Ensure correct case in import
+import InfluencerFinder from './InfluencerFinder'; // Ensure correct case in import
 
 import myntraLogo from './myntra.svg';
 import clothingImage from './images/clothing.jpg';
@@ -30,7 +31,10 @@ function App() {
             <Link className="nav-item nav-link active mx-2 text-white" to="/AboutUs">About Us</Link>
             <Link className="nav-item nav-link active mx-2 text-white" to="/ContactUs">Contact Us</Link>
           </div>
-          <Link className=" btn btn-light my-2 my-sm-0 ml-auto" to="/WorkUs">Work with Us</Link>
+          <div className="ml-auto">
+            <Link className="btn btn-light my-2 my-sm-0 mx-2" to="/WorkUs">Work with Us</Link>
+            <Link className="btn btn-light my-2 my-sm-0 mx-2" to="/InfluencerFinder">Influencer Finder</Link>
+          </div>
         </div>
       </nav>
       <Routes>
@@ -38,6 +42,7 @@ function App() {
         <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="/ContactUs" element={<ContactUs />} />
         <Route path="/WorkUs" element={<WorkUs />} />
+        <Route path="/InfluencerFinder" element={<InfluencerFinder />} />
         {/* Add other routes as needed */}
       </Routes>
     </>

@@ -242,3 +242,16 @@ margin-top: 50px;
  border-radius: 30px;
  overflow: hidden;
 }
+.navbar {
+  background-color: #343a40; /* Ensure navbar background is dark */
+}
+
+.navbar .navbar-brand {
+  color: white !important; /* Change text color to white */
+  display: flex;
+  align-items: center;
+}
+
+.navbar .navbar-brand img {
+  margin-right: 10px; /* Add some space between the logo and the text */
+}
