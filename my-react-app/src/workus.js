@@ -129,7 +129,7 @@ const WorkUs = () => {
                 <div className="form-row">
                     <div className="form-group col-md-6">
                         <label htmlFor="audienceSatisfaction">Audience Satisfaction (0-10) <span className="required">*</span></label>
-                        <input type="number" className="form-control" id="audienceSatisfaction" value={formData.audienceSatisfaction} onChange={handleChange} min="0" max="5" placeholder="Rate from 0 to 5" required />
+                        <input type="number" className="form-control" id="audienceSatisfaction" value={formData.audienceSatisfaction} onChange={handleChange} min="0" max="10" placeholder="Rate from 0 to 10" required />
                     </div>
                     <div className="form-group col-md-6">
                         <label htmlFor="audienceAge">Audience Age Group <span className="required">*</span></label>
@@ -140,7 +140,7 @@ const WorkUs = () => {
                             <option>25 to 45</option>
                             <option>45 to 55</option>
                             <option>55 to 75</option>
-                            <option>75-100</option>
+                            <option>75 to 100</option>
                         </select>
                     </div>
                 </div>
@@ -169,7 +169,7 @@ const WorkUs = () => {
                 <div className="form-row">
                     <div className="form-group col-md-6">
                         <label htmlFor="pastCampaignSuccess">Past Campaign Success Rate (0-10) <span className="required">*</span></label>
-                        <input type="number" className="form-control" id="pastCampaignSuccess" value={formData.pastCampaignSuccess} onChange={handleChange} min="0" max="5" placeholder="Rate from 0 to 5" required />
+                        <input type="number" className="form-control" id="pastCampaignSuccess" value={formData.pastCampaignSuccess} onChange={handleChange} min="0" max="10" placeholder="Rate from 0 to 10" required />
                     </div>
                     <div className="form-group col-md-6">
                         <label htmlFor="expectedBudget">Expected Budget per Post/Video <span className="required">*</span></label>
@@ -179,11 +179,11 @@ const WorkUs = () => {
                 <div className="form-row">
                     <div className="form-group col-md-6">
                         <label htmlFor="engagementRate">Engagement Rate (0-10) <span className="required">*</span></label>
-                        <input type="number" className="form-control" id="engagementRate" value={formData.engagementRate} onChange={handleChange} min="0" max="5" placeholder="Rate from 0 to 5" required />
+                        <input type="number" className="form-control" id="engagementRate" value={formData.engagementRate} onChange={handleChange} min="0" max="10" placeholder="Rate from 0 to 10" required />
                     </div>
                     <div className="form-group col-md-6">
                         <label htmlFor="followersGrowthRate">Followers Growth Rate (0-10) <span className="required">*</span></label>
-                        <input type="number" className="form-control" id="followersGrowthRate" value={formData.followersGrowthRate} onChange={handleChange} min="0" max="5" placeholder="Rate from 0 to 5" required />
+                        <input type="number" className="form-control" id="followersGrowthRate" value={formData.followersGrowthRate} onChange={handleChange} min="0" max="10" placeholder="Rate from 0 to 10" required />
                     </div>
                 </div>
                 <div className="form-row">
