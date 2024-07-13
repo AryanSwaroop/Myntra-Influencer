@@ -191,6 +191,10 @@ const WorkUs = () => {
                         <label htmlFor="state">State <span className="required">*</span></label>
                         <input type="text" className="form-control" id="state" value={formData.state} onChange={handleChange} placeholder="Your State" required />
                     </div>
+                    <div className="form-group col-md-6">
+                        <label htmlFor="city">City<span className="required">*</span></label>
+                        <input type="text" className="form-control" id="city" value={formData.city} onChange={handleChange} placeholder="Your City" required />
+                    </div>
                  
                 </div>
                 <div className="form-row">
