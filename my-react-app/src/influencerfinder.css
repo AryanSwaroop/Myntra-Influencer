@@ -1,0 +1,101 @@
+/* App.css */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.bg-color {
+  background: rgb(247, 222, 251);
+  background: linear-gradient(360deg, rgb(254, 245, 255) 0%, rgb(221, 163, 252) 100%);
+}
+
+.form-container {
+  background: #DDA3FC;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+/* influencerfinder.css */
+.influencer-card {
+  background: #DDA3FC;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  display: flex;
+  max-width: 320px;
+}
+
+.card-content {
+  display: flex;
+  width: 100%;
+  height: 250px; /* Increased height for the card */
+}
+
+.card-img-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.card-img {
+  width: 100%;
+  height: auto;
+  max-width: 80px; /* Maximum width for the profile image */
+  max-height: 120px; /* Maximum height for the profile image */
+  border-radius: 50%;
+}
+
+.card-details {
+  flex: 1;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-title {
+  color: #2f2b78;
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+}
+
+.card-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.card-icon {
+  width: 16px; /* Smaller size for the tag, like, share, and comment images */
+  height: 16px;
+  margin-right: 5px;
+}
+
+.card-text {
+  font-size: 0.9rem;
+}
+
+.btn-primary {
+  background-color: rgb(232, 177, 240);
+  border-color: rgb(232, 177, 240);
+  color: white;
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  align-self: flex-start; /* Align button to the start */
+}
+
+.btn-primary:hover {
+  background-color: #ff85c1;
+  border-color: #ff85c1;
+}
