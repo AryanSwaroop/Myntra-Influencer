@@ -6,7 +6,7 @@ import accesoriesspanImage from './images/accessories_span.jpg';
 import InfluencerCard from './InfluencerCard';
 
 const InfluencerFinder = () => {
-    const data={productCategory:"",targetAudienceGender:"",targetAudienceRange:"",budget:"",campaignDuration:""};
+    const data={productCategory:'',targetAudienceGender:'',targetAudienceRange:'',budget:'',campaignDuration:''};
     const[inputData,setInputData]=useState(data);
 
     const handleData=(e)=>{
@@ -32,6 +32,22 @@ const InfluencerFinder = () => {
 
 
     const [influencers, setInfluencers] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const fetchInfluencers = async () => {
+        try {
+          const response = await fetch('YOUR_API_ENDPOINT'); // Replace with your API endpoint
+          const data = await response.json();
+          setInfluencers(data);
+        } catch (error) {
+          console.error('Error fetching data:', error);
+        } finally {
+          setLoading(false); // optional: to manage loading state
+        }
+      };
+      
+      useEffect(()=>{
+        fetchInfluencers();
+      },[]);
 
   
 
@@ -71,7 +87,7 @@ const InfluencerFinder = () => {
                         <form >
                             <div className="form-row">
                                 <div className="form-group col-md-6">
-                                    <label htmlFor="productCategory" className="text-black">Product Category Preference <span className="required">*</span></label>
+                                    <label name="productCategory" className="text-black">Product Category Preference <span className="required">*</span></label>
                                     <select id="productCategory" value={data.productCategory} onChange={handleData} className="form-control" required>
                                         <option value="">Choose...</option>
                                         <option>Clothing</option>
@@ -138,7 +154,10 @@ const InfluencerFinder = () => {
                     </div>
                     
                     <div className="card-container">
-                        {influencers.length > 0 ? (
+        
+                        {loading ? (
+        <p className="text-black">Loading...</p>
+      ) :influencers.length > 0 ? (
                             influencers.map((influencer) => (
                                 <InfluencerCard key={influencer.id} influencer={influencer} />
                             ))
