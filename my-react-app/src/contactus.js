@@ -4,6 +4,7 @@ import axios from'axios';
 import myntraLogo from './myntra.svg';
 
 const ContactUs = () => {
+    
     const data={fullname:"",Email:"",textarea:""};
     const [inputData,setInputdata]=useState(data);
     const handledata=(e)=>{
@@ -11,15 +12,16 @@ const ContactUs = () => {
     }
     const handlesubmit=(e)=>{
         e.preventDefault();
-        axios.post("",JSON.stringify(inputData))
-        .then((response)=>{
-            console.log(response);
+        axios.post("http://localhost:5000/saveUser", JSON.stringify(inputData) ,{
+            headers: {
+                "Access-Control-Allow-Origin": "http://localhost:3000",
+                "Access-Control-Allow-Credentials": "true",
+                "Content-Type" : "application/json"
+              }
         })
 
-
-
-
     }
+
     return (
         <div>
             <section className="contact_us bg-color">
@@ -33,9 +35,9 @@ const ContactUs = () => {
                                             <div className="contact_field">
                                                 <h3>Contact Us</h3>
                                                 <p>Feel free to contact us any time. We will get back to you as soon as we can!</p>
-                                                <input type="text" name='fullname' value={data.fullname} onChange={handledata} className="form-control form-group" placeholder="Name" />
-                                                <input type="text" name='Email'value={data.Email} onChange={handledata} className="form-control form-group" placeholder="Email" />
-                                                <textarea name ="textarea"value ={data.textarea} onChange={handledata} className="form-control form-group" placeholder="Message"></textarea>
+                                                <input type="text" name='fullname' value={inputData.fullname} onChange={handledata} className="form-control form-group" placeholder="Name" />
+                                                <input type="text" name='Email'value={inputData.Email} onChange={handledata} className="form-control form-group" placeholder="Email" />
+                                                <textarea name ="textarea"value ={inputData.textarea} onChange={handledata} className="form-control form-group" placeholder="Message"></textarea>
                                                 <button onClick={handlesubmit} className="contact_form_submit">Send</button>
                                             </div>
                                         </div>
