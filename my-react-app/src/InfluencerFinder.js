@@ -8,32 +8,30 @@ import InfluencerCard from './InfluencerCard';
 const InfluencerFinder = () => {
     const data={productCategory:"",targetAudienceGender:"",targetAudienceRange:"",budget:"",campaignDuration:""};
     const[inputData,setInputData]=useState(data);
+
     const handleData=(e)=>{
         const { id, value } = e.target;
-        setInputData({...inputData,[id]:value});
+        setInputData({...inputData, [id]:value});
 
     }
 
     const handleSubmit=(e)=>{
         e.preventDefault();
-        axios.post("",inputData)
-        .then((response)=>{
-            console.log(response);
+        axios.post("http://localhost:5000/saveSeller", JSON.stringify(inputData) ,{
+            headers: {
+                "Access-Control-Allow-Origin": "http://localhost:3000",
+                "Access-Control-Allow-Credentials": "true",
+                "Content-Type" : "application/json"
+              }
         })
+        .then(response => {
+            console.log(response);
+        });
     }
     
 
 
     const [influencers, setInfluencers] = useState([]);
-    useEffect(()=>{
-        axios.get(" ")
-        .then((response)=>{
-            console.log(response);
-            setInfluencers(response.data)
-
-        })
-
-    },[])
 
   
 
@@ -112,7 +110,7 @@ const InfluencerFinder = () => {
 
                                 <div className="form-group col-md-6">
                                     <label htmlFor="budget" className="text-black">Budget <span className="required">*</span></label>
-                                    <input type="text"value={data.budget} onChange={handleData} className="form-control" id="budget" placeholder="Budget" required />
+                                    <input type="text" value={data.budget} onChange={handleData} className="form-control" id="budget" placeholder="Budget" required />
                                 </div>
                             </div>
                             <div className="form-row">
