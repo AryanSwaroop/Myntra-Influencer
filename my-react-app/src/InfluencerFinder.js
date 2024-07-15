@@ -18,7 +18,7 @@ const InfluencerFinder = () => {
         e.preventDefault();
         axios.post("https://freelancebackend-oxma.onrender.com/saveSeller", JSON.stringify(inputData) ,{
             headers: {
-                "Access-Control-Allow-Origin": "https://freelancebackend-oxma.onrender.com",
+                "Access-Control-Allow-Origin": "https://influencer-psi.vercel.app/",
                 "Access-Control-Allow-Credentials": "true",
                 "Content-Type" : "application/json"
               }
