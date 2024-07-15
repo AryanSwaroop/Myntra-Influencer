@@ -1,104 +1,67 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
+import axios from'axios'
 import './App.css';
 import './influencerfinder.css';
 import accesoriesspanImage from './images/accessories_span.jpg';
 import InfluencerCard from './InfluencerCard';
 
 const InfluencerFinder = () => {
+    const data={productCategory:"",targetAudienceGender:"",targetAudienceRange:"",budget:"",campaignDuration:""};
+    const[inputData,setInputData]=useState(data);
+    const handleData=(e)=>{
+        const { id, value } = e.target;
+        setInputData({...inputData,[id]:value});
+
+    }
+
+    const handleSubmit=(e)=>{
+        e.preventDefault();
+        axios.post("",inputData)
+        .then((response)=>{
+            console.log(response);
+        })
+    }
+    
+
+
     const [influencers, setInfluencers] = useState([]);
-    const [buttonText, setButtonText] = useState('Search');
+    useEffect(()=>{
+        axios.get(" ")
+        .then((response)=>{
+            console.log(response);
+            setInfluencers(response.data)
 
-    const dummyInfluencers = [
-        {
-            id: 1,
-            name: "Neha",
-            productCategory: "Clothing",
-            followers: 100000,
-            likes: 5000,
-            comments: 200,
-            shares: 100,
-            imageUrl: accesoriesspanImage
-        },
-        {
-            id: 2,
-            name: "Sneha",
-            productCategory: "Accessories",
-            followers: 50000,
-            likes: 2500,
-            comments: 100,
-            shares: 50,
-            imageUrl: accesoriesspanImage
-        },{
-            id: 3,
-            name: "Neha",
-            productCategory: "Clothing",
-            followers: 100000,
-            likes: 5000,
-            comments: 200,
-            shares: 100,
-            imageUrl: accesoriesspanImage
-        },
-        {
-            id: 4,
-            name: "Sneha",
-            productCategory: "Accessories",
-            followers: 50000,
-            likes: 2500,
-            comments: 100,
-            shares: 50,
-            imageUrl: accesoriesspanImage
-        },{
-            id: 5,
-            name: "Neha",
-            productCategory: "Clothing",
-            followers: 100000,
-            likes: 5000,
-            comments: 200,
-            shares: 100,
-            imageUrl: accesoriesspanImage
-        },
-        {
-            id: 6,
-            name: "Sneha",
-            productCategory: "Accessories",
-            followers: 50000,
-            likes: 2500,
-            comments: 100,
-            shares: 50,
-            imageUrl: accesoriesspanImage
-        },{
-            id: 7,
-            name: "Neha",
-            productCategory: "Clothing",
-            followers: 100000,
-            likes: 5000,
-            comments: 200,
-            shares: 100,
-            imageUrl: accesoriesspanImage
-        },
-        {
-            id: 8,
-            name: "Sneha",
-            productCategory: "Accessories",
-            followers: 50000,
-            likes: 2500,
-            comments: 100,
-            shares: 50,
-            imageUrl: accesoriesspanImage
-        }
-        // Add more influencers as needed
-    ];
+        })
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        if (buttonText === 'Search') {
-            setInfluencers(dummyInfluencers);
-            setButtonText('Update');
-        } else {
-            setInfluencers([]);
-            setButtonText('Search');
-        }
-    };
+    },[])
+
+  
+
+    // const dummyInfluencers = [
+    //     {
+    //         id: 1,
+    //         name: "Neha",
+    //         productCategory: "Clothing",
+    //         followers: 100000,
+    //         likes: 5000,
+    //         comments: 200,
+    //         shares: 100,
+    //         imageUrl: accesoriesspanImage
+    //     }
+   
+   
+    // ];
+
+    // const handleSubmit = (event) => {
+    //     event.preventDefault();
+    //     if (buttonText === 'Search') {
+    //         setInfluencers(dummyInfluencers);
+    //         setButtonText('Update');
+    //     } else {
+    //         setInfluencers([]);
+    //         setButtonText('Search');
+    //     }
+    // };
 
     return (
         <div className="App">
@@ -107,11 +70,11 @@ const InfluencerFinder = () => {
                     <h1 className="text-center text-black">Find the Best Influencer for Your Product</h1>
                     <p className="text-center text-black">Personalize Your Influencer Collaboration</p>
                     <div className="form-container">
-                        <form onSubmit={handleSubmit}>
+                        <form >
                             <div className="form-row">
                                 <div className="form-group col-md-6">
                                     <label htmlFor="productCategory" className="text-black">Product Category Preference <span className="required">*</span></label>
-                                    <select id="productCategory" className="form-control" required>
+                                    <select id="productCategory" value={data.productCategory} onChange={handleData} className="form-control" required>
                                         <option value="">Choose...</option>
                                         <option>Clothing</option>
                                         <option>Accessories</option>
@@ -122,7 +85,7 @@ const InfluencerFinder = () => {
 
                                 <div className="form-group col-md-6">
                                     <label htmlFor="targetAudienceRange" className="text-black">Target Audience Range</label>
-                                    <select id="targetAudienceRange" className="form-control" required>
+                                    <select id="targetAudienceRange"value={data.targetAudienceRange} onChange={handleData} className="form-control" required>
                                         <option value="">Choose...</option>
                                         <option>5 to 15</option>
                                         <option>15 to 25</option>
@@ -136,7 +99,7 @@ const InfluencerFinder = () => {
                                 
                                 <div className="form-group col-md-6">
                                     <label htmlFor="targetAudienceGender" className="text-black">Target Audience Gender</label>
-                                    <select id="targetAudienceGender" className="form-control" required>
+                                    <select id="targetAudienceGender" value={data.targetAudienceGender} onChange={handleData} className="form-control" required>
                                         <option value="">Choose...</option>
                                         <option>Male</option>
                                         <option>Female</option>
@@ -149,21 +112,21 @@ const InfluencerFinder = () => {
 
                                 <div className="form-group col-md-6">
                                     <label htmlFor="budget" className="text-black">Budget <span className="required">*</span></label>
-                                    <input type="text" className="form-control" id="budget" placeholder="Budget" required />
+                                    <input type="text"value={data.budget} onChange={handleData} className="form-control" id="budget" placeholder="Budget" required />
                                 </div>
                             </div>
                             <div className="form-row">
                                 
                                 <div className="form-group col-md-6">
                                     <label htmlFor="state" className="text-black">State <span className="required">*</span></label>
-                                    <input type="text" className="form-control" id="state" placeholder="State" required />
+                                    <input type="text" value={data.state} onChange={handleData} className="form-control" id="state" placeholder="State" required />
                                 </div>
 
 
 
                                 <div className="form-group col-md-6">
                                     <label htmlFor="campaignDuration" className="text-black">Campaign Duration <span className="required">*</span></label>
-                                    <select id="campaignDuration" className="form-control" required>
+                                    <select id="campaignDuration" value={data.campaignDuration} onChange={handleData} className="form-control" required>
                                         <option value="">Choose...</option>
                                         <option>One-time-post</option>
                                         <option>Month-long</option>
@@ -172,9 +135,10 @@ const InfluencerFinder = () => {
                                 </div>
                             </div>
                            
-                            <button type="submit" className="btn btn-pink">{buttonText}</button>
+                            <button type="submit" onClick={handleSubmit} className="btn btn-pink">Submit</button>
                         </form>
                     </div>
+                    
                     <div className="card-container">
                         {influencers.length > 0 ? (
                             influencers.map((influencer) => (

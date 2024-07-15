@@ -3,7 +3,7 @@ import './App.css';
 import axios from 'axios';
 
 const WorkUs = () => {
-    const [isUpdating, setIsUpdating] = useState(false);
+    // const [isUpdating, setIsUpdating] = useState(false);
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -31,14 +31,14 @@ const WorkUs = () => {
         campaignDuration: ''
     });
 
-    useEffect(() => {
-        // Mock fetching existing data
-        const existingData = localStorage.getItem('influencerData');
-        if (existingData) {
-            setFormData(JSON.parse(existingData));
-            setIsUpdating(true);
-        }
-    }, []);
+    // useEffect(() => {
+    //     // Mock fetching existing data
+    //     const existingData = localStorage.getItem('influencerData');
+    //     if (existingData) {
+    //         setFormData(JSON.parse(existingData));
+    //         setIsUpdating(true);
+    //     }
+    // }, []);
 
     const handleChange = (e) => {
         if (e.target.type === 'file') {
@@ -64,7 +64,7 @@ const WorkUs = () => {
             <h1 className="text-center">Work With Us</h1>
             <p className="text-center">Fill out the form below to collaborate with us.</p>
             <form>
-                {/* onSubmit={handleSubmit} */}
+                onSubmit={handleSubmit}
                 <div className="form-row">
                     <div className="form-group col-md-6">
                         <label htmlFor="name">Name <span className="required">*</span></label>
