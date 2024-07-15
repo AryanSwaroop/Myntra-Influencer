@@ -18,14 +18,14 @@ const InfluencerFinder = () => {
         e.preventDefault();
         axios.post("https://freelancebackend-oxma.onrender.com/saveSeller", JSON.stringify(inputData) ,{
             headers: {
-                "Access-Control-Allow-Origin": "http://localhost:3000",
+                "Access-Control-Allow-Origin": "https://freelancebackend-oxma.onrender.com",
                 "Access-Control-Allow-Credentials": "true",
                 "Content-Type" : "application/json"
               }
         })
         .then(response => {
             setTimeout(() => {
-                
+                fetchInfluencers();
             })
         });
     }
@@ -36,7 +36,7 @@ const InfluencerFinder = () => {
     const [loading, setLoading] = useState(true);
     const fetchInfluencers = async () => {
         try {
-          const response = await fetch('YOUR_API_ENDPOINT'); // Replace with your API endpoint
+          const response = await fetch('https://freelancebackend-oxma.onrender.com/dataGetter'); // Replace with your API endpoint
           const data = await response.json();
           setInfluencers(data);
         } catch (error) {

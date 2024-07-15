@@ -14,7 +14,7 @@ const ContactUs = () => {
         e.preventDefault();
         axios.post("https://freelancebackend-oxma.onrender.com/saveUser", JSON.stringify(inputData) ,{
             headers: {
-                "Access-Control-Allow-Origin": "http://localhost:3000",
+                "Access-Control-Allow-Origin": "https://freelancebackend-oxma.onrender.com",
                 "Access-Control-Allow-Credentials": "true",
                 "Content-Type" : "application/json"
               }
