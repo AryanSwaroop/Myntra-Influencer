@@ -16,13 +16,18 @@ const InfluencerFinder = () => {
 
     const handleSubmit=(e)=>{
         e.preventDefault();
-        axios.post("",inputData)
-        .then((response)=>{
-            console.log(response);
+        axios.post("", JSON.stringify(inputData) ,{
+            headers: {
+                "Access-Control-Allow-Origin": "http://localhost:3000",
+                "Access-Control-Allow-Credentials": "true",
+                "Content-Type" : "application/json"
+              }
         })
+        .then(response => {
+            console.log(response);
+        });
     }
     
-
 
     const [influencers, setInfluencers] = useState([]);
     useEffect(()=>{
