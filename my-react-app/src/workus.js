@@ -51,7 +51,7 @@ const WorkUs = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:5000/dataUpload", JSON.stringify(formData) ,{
+        axios.post("https://freelancebackend-oxma.onrender.com/dataUpload", JSON.stringify(formData) ,{
             headers: {
                 "Access-Control-Allow-Origin": "http://localhost:3000",
                 "Access-Control-Allow-Credentials": "true",

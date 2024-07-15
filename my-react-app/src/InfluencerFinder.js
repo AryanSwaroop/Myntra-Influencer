@@ -2,7 +2,6 @@ import React, { useState,useEffect } from 'react';
 import axios from'axios'
 import './App.css';
 import './influencerfinder.css';
-import accesoriesspanImage from './images/accessories_span.jpg';
 import InfluencerCard from './InfluencerCard';
 
 const InfluencerFinder = () => {
@@ -17,7 +16,7 @@ const InfluencerFinder = () => {
 
     const handleSubmit=(e)=>{
         e.preventDefault();
-        axios.post("http://localhost:5000/saveSeller", JSON.stringify(inputData) ,{
+        axios.post("https://freelancebackend-oxma.onrender.com/saveSeller", JSON.stringify(inputData) ,{
             headers: {
                 "Access-Control-Allow-Origin": "http://localhost:3000",
                 "Access-Control-Allow-Credentials": "true",
@@ -25,7 +24,9 @@ const InfluencerFinder = () => {
               }
         })
         .then(response => {
-            console.log(response);
+            setTimeout(() => {
+                
+            })
         });
     }
     
@@ -45,9 +46,6 @@ const InfluencerFinder = () => {
         }
       };
       
-      useEffect(()=>{
-        fetchInfluencers();
-      },[]);
 
   
 
