@@ -118,55 +118,60 @@ const InfluencerFinder = () => {
                                         <option>Cosmetics</option>
                                     </select>
                                 </div>
-                            </div>
-                            <div className="form-row">
+
+
                                 <div className="form-group col-md-6">
                                     <label htmlFor="targetAudienceRange" className="text-black">Target Audience Range</label>
                                     <select id="targetAudienceRange" className="form-control" required>
                                         <option value="">Choose...</option>
-                                        <option>0 to 10,000</option>
-                                        <option>10,000 to 50,000</option>
-                                        <option>50,000 to 100,000</option>
-                                        <option>100,000 to 500,000</option>
-                                        <option>500,000 to 1,000,000</option>
+                                        <option>5 to 15</option>
+                                        <option>15 to 25</option>
+                                        <option>25 to 45</option>
+                                        <option>45 to 55</option>
+                                        <option>55 to 75</option>
                                     </select>
                                 </div>
+                            </div>
+                            <div className="form-row">
+                                
                                 <div className="form-group col-md-6">
                                     <label htmlFor="targetAudienceGender" className="text-black">Target Audience Gender</label>
                                     <select id="targetAudienceGender" className="form-control" required>
                                         <option value="">Choose...</option>
                                         <option>Male</option>
                                         <option>Female</option>
+                                        <option>Both</option>
+                                        <option>Others</option>
                                     </select>
                                 </div>
-                            </div>
-                            <div className="form-row">
+
+
+
                                 <div className="form-group col-md-6">
                                     <label htmlFor="budget" className="text-black">Budget <span className="required">*</span></label>
                                     <input type="text" className="form-control" id="budget" placeholder="Budget" required />
                                 </div>
+                            </div>
+                            <div className="form-row">
+                                
                                 <div className="form-group col-md-6">
                                     <label htmlFor="state" className="text-black">State <span className="required">*</span></label>
                                     <input type="text" className="form-control" id="state" placeholder="State" required />
                                 </div>
-                            </div>
-                            <div className="form-row">
-                                <div className="form-group col-md-6">
-                                    <label htmlFor="city" className="text-black">City <span className="required">*</span></label>
-                                    <input type="text" className="form-control" id="city" placeholder="City" required />
-                                </div>
+
+
+
                                 <div className="form-group col-md-6">
                                     <label htmlFor="campaignDuration" className="text-black">Campaign Duration <span className="required">*</span></label>
                                     <select id="campaignDuration" className="form-control" required>
                                         <option value="">Choose...</option>
-                                        <option>1 Week</option>
-                                        <option>1 Month</option>
-                                        <option>3 Months</option>
-                                        <option>6 Months</option>
-                                        <option>1 Year</option>
+                                        <option>One-time-post</option>
+                                        <option>Month-long</option>
+                                        <option>Year-long</option>
                                     </select>
                                 </div>
                             </div>
+                           
                             <button type="submit" className="btn btn-pink">{buttonText}</button>
                         </form>
                     </div>
