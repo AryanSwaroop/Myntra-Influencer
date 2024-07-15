@@ -51,7 +51,13 @@ const WorkUs = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post("", JSON.stringify(formData))
+        axios.post("http://localhost:5000/dataUpload", JSON.stringify(formData) ,{
+            headers: {
+                "Access-Control-Allow-Origin": "http://localhost:3000",
+                "Access-Control-Allow-Credentials": "true",
+                "Content-Type" : "application/json"
+              }
+        })
         .then(response => {
             console.log(response);
         });
